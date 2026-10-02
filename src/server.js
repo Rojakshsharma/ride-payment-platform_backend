@@ -1,5 +1,7 @@
 import express from "express";
 import { connectDatabase } from "./config/database.js";
+import authRoutes from "./routes/auth.routes.js"
+import usersRoutes from "./routes/users.routes.js";
 
 const app = express();
 
@@ -10,6 +12,9 @@ app.get("/api/health", (req, res) => {
     status: "ok"
   });
 });
+
+app.use("/api/auth", authRoutes);
+app.use("/api/users", usersRoutes);
 
 const PORT = process.env.PORT || 5000;
 
