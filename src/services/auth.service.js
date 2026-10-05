@@ -98,11 +98,18 @@ class AuthService {
           },
         },
       },
+
+      include: {                  
+        refreshTokens: true,
+      },
     });
+
+    const refreshTokenRecord = session.refreshTokens[0];
 
     const accessToken = generateAccessToken(
       user.id,
-      session.id
+      session.id,
+      refreshTokenRecord.id
     );
 
     return {
@@ -190,7 +197,7 @@ class AuthService {
     const newTokenHash = hashRefreshToken(newRefreshToken);
 
     // Rotate old token → new token
-    await prisma.$transaction(async (tx) => {
+    const newStoredToken = await prisma.$transaction(async (tx) => {
       await tx.refreshToken.update({
         where: {
           id: storedToken.id,
@@ -200,7 +207,7 @@ class AuthService {
         },
       });
 
-      await tx.refreshToken.create({
+      return await tx.refreshToken.create({
         data: {
           sessionId: storedToken.sessionId,
           tokenHash: newTokenHash,
@@ -212,7 +219,8 @@ class AuthService {
     // Generate new access token
     const accessToken = generateAccessToken(
       storedToken.session.userId,
-      storedToken.sessionId
+      storedToken.sessionId,
+      newStoredToken.id
     );
 
     return {

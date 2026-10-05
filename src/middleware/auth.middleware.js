@@ -18,7 +18,6 @@ const authenticate = async (req, res, next) => {
       accessToken,
       process.env.ACCESS_TOKEN_SECRET
     );
-
     const session = await prisma.session.findUnique({
       where: {
         id: decoded.sessionId,
@@ -40,6 +39,36 @@ const authenticate = async (req, res, next) => {
       return res.status(401).json({
         success: false,
         message: "Session is no longer valid",
+      });
+    }
+
+    const refreshToken = await prisma.refreshToken.findUnique({
+      where: {
+        id: decoded.refreshTokenId,
+      },
+    });
+
+    if (!refreshToken) {
+      return res.status(401).json({
+        success: false,
+        message: "Access token is no longer valid",
+      });
+    }
+
+    if (refreshToken.sessionId !== decoded.sessionId) {
+      return res.status(401).json({
+        success: false,
+        message: "Invalid access token",
+      });
+    }
+
+    if (
+      refreshToken.revokedAt ||
+      refreshToken.expiresAt <= new Date()
+    ) {
+      return res.status(401).json({
+        success: false,
+        message: "Access token is no longer valid",
       });
     }
 

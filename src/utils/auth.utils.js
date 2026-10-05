@@ -1,11 +1,12 @@
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 
-const generateAccessToken = (userId, sessionId) => {
+const generateAccessToken = (userId, sessionId , refreshTokenId,) => {
   return jwt.sign(
     {
       userId,
       sessionId,
+      refreshTokenId
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
