@@ -34,6 +34,39 @@ class DriverController {
             next(error);
         }
     }
+
+    async heartbeat(req, res, next) {
+        try {
+            const result = await driverService.heartbeat({
+                userId: req.user.userId,
+            });
+
+            return res.status(200).json({
+                message: "Heartbeat received",
+                ...result,
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async updateLocation(req, res, next) {
+        try {
+            const result = await driverService.updateLocation({
+                userId: req.user.userId,
+                latitude: req.body.latitude,
+                longitude: req.body.longitude,
+                capturedAt: req.body.capturedAt,
+            });
+
+            return res.status(200).json({
+                message: "Driver location updated successfully",
+                ...result,
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 export default new DriverController();

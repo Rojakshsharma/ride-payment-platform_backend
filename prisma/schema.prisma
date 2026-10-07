@@ -24,6 +24,24 @@ enum DriverStatus {
   BUSY
 }
 
+enum PaymentStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}
+
+enum PaymentProvider {
+  RAZORPAY
+  STRIPE
+}
+
+enum PaymentAttemptStatus {
+  CREATED
+  PENDING
+  SUCCESS
+  FAILED
+}
+
 model User {
   id           String   @id @default(uuid())
   name         String
@@ -81,4 +99,59 @@ model Driver {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+
+model Payment {
+  id             String        @id @default(uuid())
+  rideId         String        @unique
+  amount         Decimal       @db.Decimal(10, 2)
+  status         PaymentStatus @default(PENDING)
+
+  attempts       PaymentAttempt[]
+  transaction    Transaction?
+
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+}
+
+model PaymentAttempt {
+  id                  String               @id @default(uuid())
+  paymentId           String
+  provider            PaymentProvider
+  status              PaymentAttemptStatus @default(CREATED)
+
+  idempotencyKey      String               @unique
+  providerOrderId     String?
+  providerReferenceId String?
+
+  payment             Payment              @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+}
+
+model PaymentWebhookEvent {
+  id              String          @id @default(uuid())
+  provider        PaymentProvider
+  providerEventId String
+  eventType       String
+  paymentId       String?
+  processedAt     DateTime?
+
+  createdAt       DateTime        @default(now())
+
+  @@unique([provider, providerEventId])
+}
+
+model Transaction {
+  id            String        @id @default(uuid())
+  paymentId     String        @unique
+  amount        Decimal       @db.Decimal(10, 2)
+  status        PaymentStatus @default(SUCCESS)
+  provider      PaymentProvider
+
+  payment       Payment       @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+
+  createdAt     DateTime      @default(now())
 }

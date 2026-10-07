@@ -18,3 +18,9 @@ export const createDriverSchema = z.object({
 export const updateDriverStatusSchema = z.object({
   status: z.enum(["AVAILABLE", "OFFLINE"]),
 });
+
+export const updateDriverLocationSchema = z.object({
+  latitude: z.number().min(-90).max(90),
+  longitude: z.number().min(-180).max(180),
+  capturedAt: z.number().int().positive(),
+});

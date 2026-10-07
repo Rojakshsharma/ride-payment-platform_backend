@@ -2,7 +2,7 @@ import { Router } from "express";
 
 import  DriverController  from "../controller/driver.controller.js";
 import  authenticate from "../middleware/auth.middleware.js";
-import { createDriverSchema ,updateDriverStatusSchema } from "../validation/driver.validator.js";
+import { createDriverSchema ,updateDriverStatusSchema , updateDriverLocationSchema} from "../validation/driver.validator.js";
 import { validate} from "../validation/auth.validation.js"
 
 
@@ -22,4 +22,17 @@ router.patch(
   DriverController.updateStatus
 );
 
+
+router.post(
+    "/heartbeat",
+    authenticate,
+    DriverController.heartbeat
+);
+
+router.patch(
+  "/location",
+  authenticate,
+  validate(updateDriverLocationSchema),
+  DriverController.updateLocation
+);
 export default router;
