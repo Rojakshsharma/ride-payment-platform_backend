@@ -1,4 +1,4 @@
-import {z} from "zod"
+import { z } from "zod"
 
 const registerSchema = z.object({
   name: z
@@ -62,4 +62,4 @@ const validate = (schema) => (req, res, next) => {
 };
 
 
-export {registerSchema , loginSchema , refreshSchema , validate}
+export { registerSchema, loginSchema, refreshSchema, validate }
