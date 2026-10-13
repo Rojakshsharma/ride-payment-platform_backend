@@ -88,6 +88,73 @@ class PaymentController {
             });
         }
     }
+
+    async getById(req, res, next) {
+        try {
+            const { paymentId } = req.params;
+
+            const payment =
+                await paymentService.getPaymentById(paymentId);
+
+            if (!payment) {
+                return res.status(404).json({
+                    success: false,
+                    message: "Payment not found",
+                });
+            }
+
+            const { attempts, ...paymentData } = payment;
+
+            return res.status(200).json({
+                success: true,
+                data: {
+                    ...paymentData,
+                    latestAttempt: attempts[0] ?? null,
+                },
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getAllTransactions(req, res, next) {
+        try {
+            const result =
+                await paymentService.getTransactions(req.query);
+
+            return res.status(200).json({
+                success: true,
+                ...result,
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
+
+    async getTransactionById(req, res, next) {
+        try {
+            const { transactionId } = req.params;
+
+            const transaction =
+                await paymentService.getTransactionById(
+                    transactionId
+                );
+
+            if (!transaction) {
+                return res.status(404).json({
+                    success: false,
+                    message: "Transaction not found",
+                });
+            }
+
+            return res.status(200).json({
+                success: true,
+                data: transaction,
+            });
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 export default new PaymentController();

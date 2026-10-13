@@ -274,7 +274,139 @@ class PaymentService {
         });
     }
 
+    static async getPaymentById(paymentId) {
+        return prisma.payment.findUnique({
+            where: {
+                id: paymentId,
+            },
 
+            select: {
+                id: true,
+                rideId: true,
+                amount: true,
+                status: true,
+                createdAt: true,
+                updatedAt: true,
+
+                attempts: {
+                    take: 1,
+
+                    orderBy: [
+                        { createdAt: "desc" },
+                        { id: "desc" },
+                    ],
+
+                    select: {
+                        id: true,
+                        provider: true,
+                        status: true,
+                        providerOrderId: true,
+                        createdAt: true,
+                        updatedAt: true,
+                    },
+                },
+            },
+        });
+    }
+
+    static async getTransactions({
+        pageNumber = 1,
+        pageSize = 10,
+        search = "",
+    } = {}) {
+        const skip = (pageNumber - 1) * pageSize;
+        const normalizedSearch = search.trim();
+
+        const orConditions = [];
+
+        if (normalizedSearch) {
+            orConditions.push(
+                {
+                    id: {
+                        contains: normalizedSearch,
+                        mode: "insensitive",
+                    },
+                },
+                {
+                    paymentId: {
+                        contains: normalizedSearch,
+                        mode: "insensitive",
+                    },
+                }
+            );
+
+            const provider = normalizedSearch.toUpperCase();
+
+            if (["STRIPE", "RAZORPAY"].includes(provider)) {
+                orConditions.push({ provider });
+            }
+        }
+
+        const where = normalizedSearch
+            ? { OR: orConditions }
+            : {};
+
+        // Fetch one extra row to determine whether
+        // another page exists without a COUNT query.
+        const rows = await prisma.transaction.findMany({
+            where,
+
+            orderBy: [
+                { createdAt: "desc" },
+                { id: "desc" },
+            ],
+
+            skip,
+            take: pageSize + 1,
+
+            select: {
+                id: true,
+                paymentId: true,
+                amount: true,
+                status: true,
+                provider: true,
+                createdAt: true,
+            },
+        });
+
+        const hasNextPage = rows.length > pageSize;
+        const data = hasNextPage
+            ? rows.slice(0, pageSize)
+            : rows;
+
+        return {
+            pageNumber,
+            nextPage: hasNextPage ? pageNumber + 1 : null,
+            search: normalizedSearch,
+            data,
+        };
+    }
+
+    static async getTransactionById(transactionId) {
+        return prisma.transaction.findUnique({
+            where: {
+                id: transactionId,
+            },
+
+            select: {
+                id: true,
+                paymentId: true,
+                amount: true,
+                status: true,
+                provider: true,
+                createdAt: true,
+
+                payment: {
+                    select: {
+                        id: true,
+                        rideId: true,
+                        status: true,
+                        amount: true,
+                    },
+                },
+            },
+        });
+    }
 
 
 }
