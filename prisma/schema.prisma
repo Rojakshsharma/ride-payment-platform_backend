@@ -55,6 +55,8 @@ model User {
   sessions     Session[]
   driver Driver?
 
+  rides Ride[]
+
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }
@@ -154,4 +156,32 @@ model Transaction {
   payment       Payment       @relation(fields: [paymentId], references: [id], onDelete: Cascade)
 
   createdAt     DateTime      @default(now())
+}
+
+model Ride {
+  id                      String   @id @default(cuid())
+  customerId              String
+
+  pickupLatitude          Float
+  pickupLongitude         Float
+  dropoffLatitude         Float
+  dropoffLongitude        Float
+
+  pickupAddress           String
+  dropoffAddress          String
+
+  estimatedDistanceMeters Int
+  estimatedDurationSeconds Int
+  estimatedFare           Decimal  @db.Decimal(10, 2)
+
+  status                  RideStatus @default(REQUESTED)
+
+  customer                User     @relation(fields: [customerId], references: [id])
+
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
+
+enum RideStatus {
+  REQUESTED
 }

@@ -3,7 +3,7 @@ import { prisma } from "../config/database.js";
 import stripe from "../config/stripe.js";
 
 class PaymentService {
-    static async createPayment(rideId) {
+    async createPayment(rideId) {
         const amount = process.env.DEFAULT_PAYMENT_AMOUNT;
 
         if (
@@ -60,7 +60,7 @@ class PaymentService {
         }
     }
 
-    static async createCheckoutAttempt(paymentId, idempotencyKey) {
+    async createCheckoutAttempt(paymentId, idempotencyKey) {
         return prisma.$transaction(async (tx) => {
             const payments = await tx.$queryRaw`
             SELECT * FROM "Payment"
@@ -201,7 +201,7 @@ class PaymentService {
         });
     }
 
-    static async handleCheckoutSessionCompleted(event) {
+    async handleCheckoutSessionCompleted(event) {
         const session = event.data.object;
 
         await prisma.$transaction(async (tx) => {
@@ -274,7 +274,7 @@ class PaymentService {
         });
     }
 
-    static async getPaymentById(paymentId) {
+    async getPaymentById(paymentId) {
         return prisma.payment.findUnique({
             where: {
                 id: paymentId,
@@ -309,7 +309,7 @@ class PaymentService {
         });
     }
 
-    static async getTransactions({
+    async getTransactions({
         pageNumber = 1,
         pageSize = 10,
         search = "",
@@ -382,7 +382,7 @@ class PaymentService {
         };
     }
 
-    static async getTransactionById(transactionId) {
+    async getTransactionById(transactionId) {
         return prisma.transaction.findUnique({
             where: {
                 id: transactionId,
@@ -411,4 +411,4 @@ class PaymentService {
 
 }
 
-export default PaymentService;
+export default new PaymentService

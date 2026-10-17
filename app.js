@@ -5,6 +5,7 @@ import usersRoutes from "./src/routes/users.routes.js";
 import driverRouter from "./src/routes/driver.routes.js";
 import paymentRoutes from "./src/routes/payment.routes.js";
 import webhookRoutes from "./src/routes/webhook.routes.js"
+import rideRoutes from "./src/routes/ride.routes.js";
 
 import requestLogger from "./src/middleware/requestLogger.middleware.js";
 import errorHandler from "./src/middleware/error.middleware.js";
@@ -28,6 +29,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/drivers", driverRouter);
 app.use("/api/payments", paymentRoutes);
+app.use("/api/rides", rideRoutes);
 
 
 app.use(errorHandler);

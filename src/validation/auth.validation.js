@@ -44,22 +44,6 @@ const refreshSchema = z.object({
     .min(1, "Refresh token is required"),
 });
 
-// const validate = (schema) => (req, res, next) => {
-//   try {
-//     req.body = schema.parse(req.body);
-//     next();
-//   } catch (error) {
-//     if (error.name === "ZodError") {
-//       return res.status(400).json({
-//         success: false,
-//         message: "Validation failed",
-//         errors: error.issues,
-//       });
-//     }
-
-//     next(error);
-//   }
-// };
 
 const validate = (schema, source = "body") => (req, res, next) => {
   const result = schema.safeParse(req[source]);

@@ -206,3 +206,60 @@
 {"level":30,"time":1791924896299,"pid":9012,"hostname":"DESKTOP-IPP2D77","method":"GET","url":"/api/payments/transactions","statusCode":200,"responseTime":"127ms"}
 {"level":30,"time":1791924972508,"pid":9012,"hostname":"DESKTOP-IPP2D77","method":"GET","url":"/api/payments/transactions/82678a09-4afb-447f-86c5-87fbec43d04f","statusCode":401,"responseTime":"3ms"}
 {"level":30,"time":1791924994859,"pid":9012,"hostname":"DESKTOP-IPP2D77","method":"GET","url":"/api/payments/transactions/82678a09-4afb-447f-86c5-87fbec43d04f","statusCode":200,"responseTime":"68ms"}
+{"level":30,"time":1792063501013,"pid":13252,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792073350561,"pid":15252,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792074172749,"pid":9528,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792074233014,"pid":22784,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792074282685,"pid":2528,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792074365094,"pid":15060,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792075418708,"pid":2340,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792075425447,"pid":20588,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792075827891,"pid":8492,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792075841998,"pid":4256,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792075848613,"pid":22516,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792075868597,"pid":7020,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792075875033,"pid":23252,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792076630406,"pid":23516,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792076901587,"pid":4816,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792076960473,"pid":22756,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792076976935,"pid":12184,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792076981703,"pid":12140,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077024943,"pid":22232,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077031064,"pid":18508,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077038959,"pid":12464,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077041407,"pid":22780,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077043482,"pid":10196,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077046023,"pid":10392,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077048883,"pid":19080,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077105828,"pid":19080,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/auth/login","statusCode":200,"responseTime":"918ms"}
+{"level":30,"time":1792077261676,"pid":19080,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides","statusCode":404,"responseTime":"3ms"}
+{"level":30,"time":1792077283764,"pid":16560,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077284973,"pid":12920,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792077290601,"pid":12920,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides","statusCode":201,"responseTime":"757ms"}
+{"level":30,"time":1792090296896,"pid":21596,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792243634275,"pid":16632,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792243877418,"pid":16632,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/auth/login","statusCode":200,"responseTime":"2103ms"}
+{"level":30,"time":1792243895574,"pid":16632,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides","statusCode":201,"responseTime":"966ms"}
+{"level":30,"time":1792243897190,"pid":16632,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides","statusCode":201,"responseTime":"241ms"}
+{"level":30,"time":1792245069649,"pid":3296,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245280844,"pid":19020,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245320213,"pid":20024,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245325045,"pid":6108,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245328467,"pid":15136,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245337070,"pid":4804,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245339160,"pid":16332,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245399079,"pid":14404,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245414322,"pid":17420,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245421517,"pid":12724,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245425779,"pid":12724,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/estimate","statusCode":404,"responseTime":"49ms"}
+{"level":30,"time":1792245469304,"pid":12724,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides/estimate","statusCode":401,"responseTime":"16ms"}
+{"level":30,"time":1792245490710,"pid":12724,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/auth/refresh","statusCode":200,"responseTime":"415ms"}
+{"level":50,"time":1792245504799,"pid":12724,"hostname":"DESKTOP-IPP2D77","err":{"type":"ReferenceError","message":"redisClientClient is not defined","stack":"ReferenceError: redisClientClient is not defined\n    at RideService.estimateRide (file:///E:/Ride%20+%20Payment%20Platform/backend/src/services/ride.service.js:56:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async estimateRide (file:///E:/Ride%20+%20Payment%20Platform/backend/src/controller/ride.controller.js:8:21)"},"method":"POST","url":"/api/rides/estimate","msg":"Request failed"}
+{"level":30,"time":1792245504803,"pid":12724,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides/estimate","statusCode":500,"responseTime":"612ms"}
+{"level":30,"time":1792245631706,"pid":14228,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245635437,"pid":8356,"hostname":"DESKTOP-IPP2D77","msg":"Server running on http://localhost:5000"}
+{"level":30,"time":1792245641017,"pid":8356,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides/estimate","statusCode":200,"responseTime":"817ms"}
+{"level":50,"time":1792245920236,"pid":8356,"hostname":"DESKTOP-IPP2D77","err":{"type":"Error","message":"Fare quote expired or not found. Please request a new estimate.","stack":"Error: Fare quote expired or not found. Please request a new estimate.\n    at RideService.createRide (file:///E:/Ride%20+%20Payment%20Platform/backend/src/services/ride.service.js:73:21)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createRide (file:///E:/Ride%20+%20Payment%20Platform/backend/src/controller/ride.controller.js:27:20)","statusCode":410},"method":"POST","url":"/api/rides","msg":"Request failed"}
+{"level":30,"time":1792245920245,"pid":8356,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides","statusCode":410,"responseTime":"208ms"}
+{"level":30,"time":1792245930166,"pid":8356,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides/estimate","statusCode":200,"responseTime":"611ms"}
+{"level":30,"time":1792245943245,"pid":8356,"hostname":"DESKTOP-IPP2D77","method":"POST","url":"/api/rides","statusCode":201,"responseTime":"230ms"}

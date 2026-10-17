@@ -27,4 +27,4 @@ class UsersService {
   }
 }
 
-export default new UsersService();
+export default new UsersService;
